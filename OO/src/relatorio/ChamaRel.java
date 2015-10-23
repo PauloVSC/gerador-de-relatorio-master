@@ -1,6 +1,8 @@
 package relatorio;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -35,9 +37,25 @@ public class ChamaRel {
 	    int contador = 0;
 	    int maxFaltas;
 	    String falta = "F";
+		//Date datas[] = new Date[];
+	    
+	    //Date data = new Date();
+	    
+	   Calendar c = Calendar.getInstance();
 	   
+	   c.set(Calendar.YEAR, 2015);
+	   c.set(Calendar.MONTH, Calendar.FEBRUARY);
+	   c.set(Calendar.DAY_OF_MONTH, 27);
+	    
+	    System.out.println(c.get(Calendar.MONTH)+1+"/"+c.get(Calendar.DAY_OF_MONTH));
+	    c.add(Calendar.DAY_OF_MONTH, 7);
+	    System.out.println(c.get(Calendar.MONTH)+1+"/"+c.get(Calendar.DAY_OF_MONTH));
+	    
 	    maxFaltas = (int) ((colunas-5)*0.25);
-	    for(int i=0; i< linhas; i++){
+	    for(int i=1; i<colunas; i++){
+	    	datas[i]=sheet.getCell(1, i+5).getContents();
+	    }
+	    for(int i=1; i< linhas; i++){
 	    	//Lê a linha pelo getCell(coluna, linha )	  
 	    	for(int j=0; j<colunas; j++){
 	    		conteudo[j] = sheet.getCell(j, i).getContents();
