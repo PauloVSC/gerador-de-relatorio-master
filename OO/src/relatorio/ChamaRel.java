@@ -36,25 +36,18 @@ public class ChamaRel {
 	    String conteudo[] = new String[colunas]; //cada indice guarda o conteudo da celula da linha
 	    int contador = 0;
 	    int maxFaltas;
-	    String falta = "F";
+	    char falta = 'F';
+	   // String datas[] = new String[colunas];
 		//Date datas[] = new Date[];
 	    
 	    //Date data = new Date();
 	    
-	   Calendar c = Calendar.getInstance();
-	   
-	   c.set(Calendar.YEAR, 2015);
-	   c.set(Calendar.MONTH, Calendar.FEBRUARY);
-	   c.set(Calendar.DAY_OF_MONTH, 27);
-	    
-	    System.out.println(c.get(Calendar.MONTH)+1+"/"+c.get(Calendar.DAY_OF_MONTH));
-	    c.add(Calendar.DAY_OF_MONTH, 7);
-	    System.out.println(c.get(Calendar.MONTH)+1+"/"+c.get(Calendar.DAY_OF_MONTH));
-	    
 	    maxFaltas = (int) ((colunas-5)*0.25);
-	    for(int i=1; i<colunas; i++){
-	    	datas[i]=sheet.getCell(1, i+5).getContents();
-	    }
+	    
+//	    for(int i=5; i<colunas; i++){
+//	    	datas[i]=sheet.getCell(i, 0).getContents();
+//	    	System.out.println(datas[i]);
+//	    }
 	    for(int i=1; i< linhas; i++){
 	    	//Lê a linha pelo getCell(coluna, linha )	  
 	    	for(int j=0; j<colunas; j++){
@@ -62,6 +55,7 @@ public class ChamaRel {
 	    	}	 
 	    	
 	    	Alunos aluno = new Alunos(); 
+	    	aluno.setDatas(sheet, colunas);
 		   	aluno.setMatricula(conteudo[0]);
 		   	aluno.setNome(conteudo[1]);
 		   	aluno.setCodigo(conteudo[2]);
@@ -72,9 +66,12 @@ public class ChamaRel {
 		    contador = 0;
 		   	for(int k=0; k < colunas; k++){
 		   		aluno.setAula(conteudo[k], k);
-		    	if (aluno.getAula(k) == falta)
-		    		contador = contador++;
-	    		System.out.println(aluno.getAula(k) + " - " + contador);
+		   		//System.out.println("aqui"+aluno.getAula(k).charAt(1));
+		   		if (aluno.getAula(k) != "")
+			   		if (aluno.getAula(k).charAt(0) == falta){
+			    		contador = contador+1;
+			   		}
+	    		//System.out.println( aluno.getAula(k) + " - " + contador);
             }
 		   	
 
@@ -84,7 +81,7 @@ public class ChamaRel {
 		    	aluno.setResultado("AP");
 		    else
 		    	aluno.setResultado("RR");
-System.out.println(contador + " - " + maxFaltas);
+System.out.println(aluno.getDatas(1));
             lista.add(aluno);
             //mapa.put("aluno"+i, aluno);
         }
@@ -97,7 +94,7 @@ System.out.println(contador + " - " + maxFaltas);
     //Cria e abre o arquivo properties
     Properties arq = new Properties();
     FileInputStream file = new FileInputStream(caminho + "/src/relatorio/cabecalho.properties");
-    arq.load(file);	    
+    arq.load(file);	   
     
     //Map<String, Object> mapa = new HashMap<String, Object>(); //cria o mapa
     Cabecalho dados_cabecalho = new Cabecalho();

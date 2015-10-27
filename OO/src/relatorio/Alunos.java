@@ -1,6 +1,8 @@
 package relatorio;
 
-public class Alunos{
+import jxl.Sheet;
+
+public class Alunos extends DatasAula{
 	private String matricula;
 	private String nome;
 	private String codigo;
@@ -43,7 +45,13 @@ public class Alunos{
 		return this.avaliacao;
 	} 
 	
-
+	public void setDatas(Sheet planilha, int col) {
+		this.datas = this.pegarDatas(planilha, col);
+	} 
+	
+	public String getDatas(int i) {
+		return this.datas[i];
+	} 
 
 	//Métodos para o nome
 	public void setNome(String nome) {
