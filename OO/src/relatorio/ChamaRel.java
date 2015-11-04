@@ -26,7 +26,8 @@ import jxl.read.biff.BiffException;
 public class ChamaRel {
 	
 	public static void main(String[] args) throws JRException, IOException, BiffException{
-   
+		
+		ArrayList<DatasAula> lista1 = new ArrayList<>();
 	    ArrayList<Alunos> lista = new ArrayList<>();
 	    Map<String, Object> mapa = new HashMap<String, Object>(); //cria o mapa
 	    Workbook arquivoexcel = Workbook.getWorkbook(new File("Base de alunos.xls"));  //abre o arquivo	    
@@ -48,6 +49,17 @@ public class ChamaRel {
 //	    	datas[i]=sheet.getCell(i, 0).getContents();
 //	    	System.out.println(datas[i]);
 //	    }
+	    for(int i=0; i< 1; i++){
+	    	//Lê a linha pelo getCell(coluna, linha )	  
+	    	for(int j=5; j<colunas; j++){
+	    		conteudo[j] = sheet.getCell(j, i).getContents();
+	    	}
+	    	DatasAula date = new DatasAula();
+	    	date.setDatas(conteudo[6], 6);
+	    	System.out.println("aqui"+date.getDatas(6));
+	    	lista1.add(date);
+	    }
+	    
 	    for(int i=1; i< linhas; i++){
 	    	//Lê a linha pelo getCell(coluna, linha )	  
 	    	for(int j=0; j<colunas; j++){
@@ -55,7 +67,7 @@ public class ChamaRel {
 	    	}	 
 	    	
 	    	Alunos aluno = new Alunos(); 
-	    	aluno.pegarDatas(sheet, colunas);
+	    	//aluno.setDatas(aluno.pegarDatas(sheet, colunas));
 		   	aluno.setMatricula(conteudo[0]);
 		   	aluno.setNome(conteudo[1]);
 		   	aluno.setCodigo(conteudo[2]);
@@ -66,7 +78,7 @@ public class ChamaRel {
 		    contador = 0;
 		   	for(int k=0; k < colunas; k++){
 		   		aluno.setAula(conteudo[k], k);
-		   		//System.out.println("aqui"+aluno.getAula(k).charAt(1));
+		   		//System.out.println("aqui "+aluno.getAula(k).charAt(1));
 		   		if (aluno.getAula(k) != "")
 			   		if (aluno.getAula(k).charAt(0) == falta){
 			    		contador = contador+1;

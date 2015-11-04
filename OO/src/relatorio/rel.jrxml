@@ -47,9 +47,6 @@
 	<field name="aula[37]" class="java.lang.String"/>
 	<field name="media" class="java.lang.String"/>
 	<field name="resultado" class="java.lang.String"/>
-	<field name="datas" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -698,9 +695,12 @@
 				</textElement>
 				<text><![CDATA[Med]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="74" y="22" width="100" height="20" uuid="71b149e5-d5e5-49cc-b56f-bd1413584e25"/>
-				<textFieldExpression><![CDATA[$F{datas}]]></textFieldExpression>
+			<textField pattern="dd/MM">
+				<reportElement x="245" y="28" width="18" height="20" uuid="5c0cb06a-d0ba-415b-8efd-adf44d6a1587"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>

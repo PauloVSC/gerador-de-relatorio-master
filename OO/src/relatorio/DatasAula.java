@@ -1,17 +1,24 @@
 package relatorio;
 
-import jxl.Sheet;
+//import jxl.Sheet;
 
-public class DatasAula {
+public class DatasAula  {
 	public String datas[] = new String[40];
 
-	public String[] pegarDatas(Sheet planilha, int col){
-	    for(int i=5; i<col; i++){
-	    	this.datas[i]=planilha.getCell(i, 0).getContents();
-	    	System.out.println(datas[i]);
-	    }
-	    return datas;
+	public String getDatas(int j) {
+		return this.datas[j];
+	}
+
+	public void setDatas(String datas, int i) {
+		this.datas[i] = datas;
+	}
+	//public String[] pegarDatas(Sheet planilha, int col){
+	//    for(int i=5; i<col; i++){
+	//    	this.datas[i]=planilha.getCell(i, 0).getContents();
+	//    	System.out.println(datas[i]);
+	 //   }
+	 //   return datas;
 		//return datas;
 		
 	}
-}
+
