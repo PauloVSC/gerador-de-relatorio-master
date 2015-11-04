@@ -55,7 +55,7 @@ public class ChamaRel {
 	    	}	 
 	    	
 	    	Alunos aluno = new Alunos(); 
-	    	aluno.setDatas(sheet, colunas);
+	    	aluno.pegarDatas(sheet, colunas);
 		   	aluno.setMatricula(conteudo[0]);
 		   	aluno.setNome(conteudo[1]);
 		   	aluno.setCodigo(conteudo[2]);
@@ -81,7 +81,7 @@ public class ChamaRel {
 		    	aluno.setResultado("AP");
 		    else
 		    	aluno.setResultado("RR");
-System.out.println(aluno.getDatas(1));
+//System.out.println(aluno.getDatas(1));
             lista.add(aluno);
             //mapa.put("aluno"+i, aluno);
         }

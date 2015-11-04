@@ -3,7 +3,7 @@ package relatorio;
 import jxl.Sheet;
 
 public class DatasAula {
-	String datas[] = new String[40];
+	public String datas[] = new String[40];
 
 	public String[] pegarDatas(Sheet planilha, int col){
 	    for(int i=5; i<col; i++){

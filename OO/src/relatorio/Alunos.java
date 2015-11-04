@@ -45,13 +45,13 @@ public class Alunos extends DatasAula{
 		return this.avaliacao;
 	} 
 	
-	public void setDatas(Sheet planilha, int col) {
-		this.datas = this.pegarDatas(planilha, col);
-	} 
-	
-	public String getDatas(int i) {
-		return this.datas[i];
-	} 
+	public String[] getDatas() {
+		return datas;
+	}
+
+	public void setDatas(String[] datas) {
+		this.datas = datas;
+	}
 
 	//Métodos para o nome
 	public void setNome(String nome) {
