@@ -39,26 +39,29 @@ public class ChamaRel {
 	    int maxFaltas;
 	    char falta = 'F';
 	   // String datas[] = new String[colunas];
-		//Date datas[] = new Date[];
+		Alunos date = new Alunos();
 	    
 	    //Date data = new Date();
 	    
 	    maxFaltas = (int) ((colunas-5)*0.25);
 	    
-//	    for(int i=5; i<colunas; i++){
-//	    	datas[i]=sheet.getCell(i, 0).getContents();
-//	    	System.out.println(datas[i]);
-//	    }
-	    for(int i=0; i< 1; i++){
+	  
 	    	//Lê a linha pelo getCell(coluna, linha )	  
 	    	for(int j=5; j<colunas; j++){
-	    		conteudo[j] = sheet.getCell(j, i).getContents();
+	    		conteudo[j-5] = sheet.getCell(j, 0).getContents();
+	    		date.setDatas(conteudo[j-5], j-5);
 	    	}
-	    	DatasAula date = new DatasAula();
-	    	date.setDatas(conteudo[6], 6);
-	    	System.out.println("aqui"+date.getDatas(6));
-	    	lista1.add(date);
-	    }
+	    	lista.add(date);
+	   	    //for(int i=0; i< 1; i++){
+	    	//Lê a linha pelo getCell(coluna, linha )	  
+	    	//for(int j=5; j<colunas; j++){
+	    		//conteudo[j] = sheet.getCell(j, i).getContents();
+	    	//}
+	    	//DatasAula date = new DatasAula();
+	    	//date.setDatas(conteudo[6], 6);
+	    	//System.out.println("aqui"+date.getDatas(6));
+	    	//lista1.add(date);
+	    //}
 	    
 	    for(int i=1; i< linhas; i++){
 	    	//Lê a linha pelo getCell(coluna, linha )	  
@@ -67,8 +70,7 @@ public class ChamaRel {
 	    	}	 
 	    	
 	    	Alunos aluno = new Alunos(); 
-	    	//aluno.setDatas(aluno.pegarDatas(sheet, colunas));
-		   	aluno.setMatricula(conteudo[0]);
+	    	aluno.setMatricula(conteudo[0]);
 		   	aluno.setNome(conteudo[1]);
 		   	aluno.setCodigo(conteudo[2]);
 		    aluno.setAvaliacao(conteudo[3], 0);
@@ -85,7 +87,6 @@ public class ChamaRel {
 			   		}
 	    		//System.out.println( aluno.getAula(k) + " - " + contador);
             }
-		   	
 
 		   	if (contador > maxFaltas)
 		   		aluno.setResultado("RF");

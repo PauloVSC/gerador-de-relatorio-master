@@ -3,15 +3,16 @@ package relatorio;
 //import jxl.Sheet;
 
 public class DatasAula  {
-	public String datas[] = new String[40];
+	private String datas[] = new String[40];
 
-	public String getDatas(int j) {
-		return this.datas[j];
+	public String getDatas(int i) {
+		return this.datas[i];
 	}
 
-	public void setDatas(String datas, int i) {
-		this.datas[i] = datas;
+	public void setDatas(String datas, int j) {
+		this.datas[j] = datas;
 	}
+
 	//public String[] pegarDatas(Sheet planilha, int col){
 	//    for(int i=5; i<col; i++){
 	//    	this.datas[i]=planilha.getCell(i, 0).getContents();

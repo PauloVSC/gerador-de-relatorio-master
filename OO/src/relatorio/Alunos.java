@@ -2,7 +2,7 @@ package relatorio;
 
 //import jxl.Sheet;
 
-public class Alunos{
+public class Alunos extends DatasAula{
 	private String matricula;
 	private String nome;
 	private String codigo;
