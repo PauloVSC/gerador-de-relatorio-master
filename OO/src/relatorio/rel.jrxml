@@ -47,7 +47,7 @@
 	<field name="aula[37]" class="java.lang.String"/>
 	<field name="media" class="java.lang.String"/>
 	<field name="resultado" class="java.lang.String"/>
-	<field name="datas" class="java.lang.String"/>
+	<field name="datas[5]" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -697,8 +697,8 @@
 				<text><![CDATA[Med]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="37" y="8" width="42" height="20" uuid="3f39f787-46ed-47b7-9366-4255f454f7c3"/>
-				<textFieldExpression><![CDATA[$F{datas[1]}]]></textFieldExpression>
+				<reportElement x="26" y="2" width="100" height="20" uuid="55efc60f-c282-4945-8fe6-0fa73e943653"/>
+				<textFieldExpression><![CDATA[$F{datas[5]}]]></textFieldExpression>
 			</textField>
 		</band>
 	</columnHeader>

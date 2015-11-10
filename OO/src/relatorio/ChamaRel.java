@@ -39,29 +39,16 @@ public class ChamaRel {
 	    int maxFaltas;
 	    char falta = 'F';
 	   // String datas[] = new String[colunas];
-		Alunos date = new Alunos();
+		//Date datas[] = new Date[];
 	    
 	    //Date data = new Date();
 	    
 	    maxFaltas = (int) ((colunas-5)*0.25);
 	    
-	  
-	    	//Lê a linha pelo getCell(coluna, linha )	  
-	    	for(int j=5; j<colunas; j++){
-	    		conteudo[j-5] = sheet.getCell(j, 0).getContents();
-	    		date.setDatas(conteudo[j-5], j-5);
-	    	}
-	    	lista.add(date);
-	   	    //for(int i=0; i< 1; i++){
-	    	//Lê a linha pelo getCell(coluna, linha )	  
-	    	//for(int j=5; j<colunas; j++){
-	    		//conteudo[j] = sheet.getCell(j, i).getContents();
-	    	//}
-	    	//DatasAula date = new DatasAula();
-	    	//date.setDatas(conteudo[6], 6);
-	    	//System.out.println("aqui"+date.getDatas(6));
-	    	//lista1.add(date);
-	    //}
+//	    for(int i=5; i<colunas; i++){
+//	    	datas[i]=sheet.getCell(i, 0).getContents();
+//	    	System.out.println(datas[i]);
+//	    }
 	    
 	    for(int i=1; i< linhas; i++){
 	    	//Lê a linha pelo getCell(coluna, linha )	  
@@ -70,7 +57,8 @@ public class ChamaRel {
 	    	}	 
 	    	
 	    	Alunos aluno = new Alunos(); 
-	    	aluno.setMatricula(conteudo[0]);
+	    	//aluno.setDatas(aluno.pegarDatas(sheet, colunas));
+		   	aluno.setMatricula(conteudo[0]);
 		   	aluno.setNome(conteudo[1]);
 		   	aluno.setCodigo(conteudo[2]);
 		    aluno.setAvaliacao(conteudo[3], 0);
@@ -87,6 +75,7 @@ public class ChamaRel {
 			   		}
 	    		//System.out.println( aluno.getAula(k) + " - " + contador);
             }
+		   	
 
 		   	if (contador > maxFaltas)
 		   		aluno.setResultado("RF");
@@ -95,6 +84,16 @@ public class ChamaRel {
 		    else
 		    	aluno.setResultado("RR");
 //System.out.println(aluno.getDatas(1));
+		   	
+		   	
+		    for(int h=0; h< 1; h++){
+		    	//Lê a linha pelo getCell(coluna, linha )
+		    	for(int v=5; v<colunas; v++){
+		    		conteudo[v] = sheet.getCell(v, h).getContents();
+			    	aluno.setDatas(conteudo[v], v);
+			    	System.out.println("aqui "+aluno.getDatas(v));
+		    	}
+		    }
             lista.add(aluno);
             //mapa.put("aluno"+i, aluno);
         }

@@ -12,6 +12,16 @@ public class Alunos extends DatasAula{
 	private float media;
 	private String resultado;
 	
+	public String datas[] = new String[40];
+
+	public String getDatas(int v) {
+		return datas[v];
+	}
+
+	public void setDatas(String datas, int h) {
+		this.datas[h] = datas;
+	}
+	
 	
 	public String getResultado() {
 		return resultado;
